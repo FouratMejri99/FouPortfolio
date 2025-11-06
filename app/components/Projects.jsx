@@ -6,6 +6,12 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Advisor Management System",
+      desc: "A full-stack application for managing energy label advisors client base with secure role-based access and JWT authentication.",
+      tech: "NexJs,Jest,JWT,docker,Supabase,Redux,Nginx",
+      link: "https://ahlalabei-q7bh.vercel.app/",
+    },
+    {
       title: "Tnker Marketplace – CRM Platform",
       desc: "A CRM marketplace connecting agencies and clients, featuring project management, invoicing, and analytics dashboards with AI-driven recommendations.",
       tech: "Next.js, NestJS, TypeScript, Tailwind CSS, PostgreSQL, Python, Docker",
@@ -18,22 +24,16 @@ export default function Projects() {
       link: "https://vibo-silk.vercel.app/",
     },
     {
-      title: "AI-Shop – Virtual Try-On E-Commerce",
-      desc: "An AI-powered e-commerce platform allowing users to virtually try on clothes using deep learning and computer vision for realistic garment simulation.",
-      tech: "Vue.js, Go (Gin/Fiber), Python, FastAPI, OpenCV, TensorFlow, PostgreSQL, Docker",
-      link: "https://vercel.com/fouratmejri99s-projects/ai-shop",
-    },
-    {
-      title: "Advisor Management System",
-      desc: "A full-stack application for managing energy label advisors client base with secure role-based access and JWT authentication.",
-      tech: "NexJs,Jest,JWT,docker,Supabase,Redux,Nginx",
-      link: "https://ahlalabei-q7bh.vercel.app/",
-    },
-    {
       title: "Employee Management System",
       desc: "A web app to manage employee records, attendance, and payroll with secure REST APIs and responsive dashboard.",
       tech: "Spring Boot, Angular, MySQL, JWT, Docker",
       link: "restricted",
+    },
+    {
+      title: "AI-Shop – Virtual Try-On E-Commerce",
+      desc: "An AI-powered e-commerce platform allowing users to virtually try on clothes using deep learning and computer vision for realistic garment simulation.",
+      tech: "Vue.js, Go (Gin/Fiber), Python, FastAPI, OpenCV, TensorFlow, PostgreSQL, Docker",
+      link: "https://ai-shop-umber.vercel.app/",
     },
     {
       title: "Data Analytics Dashboard",
