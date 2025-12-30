@@ -1,57 +1,121 @@
-export default function Contact() {
-  return (
-    <section id="contact" className="py-24 text-center bg-white px-6">
-      <h2 className="text-4xl font-bold text-gray-800 mb-6">Get In Touch</h2>
-      <p className="text-gray-600 mb-6">
-        I’m currently open to new opportunities or collaborations. You can reach
-        me via LinkedIn, GitHub, Kaggle, email, or phone.
-      </p>
+"use client";
+import { motion } from "framer-motion";
+import { Linkedin, Github, Mail, Phone, ExternalLink } from "lucide-react";
 
-      {/* Contact Buttons */}
-      <div className="flex flex-col md:flex-row justify-center gap-4 mb-6">
-        <a
-          href="https://www.linkedin.com/in/fourat-mejri"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-medium shadow hover:bg-blue-700 transition"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/FouratMejri99"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-gray-800 text-white px-6 py-3 rounded-full font-medium shadow hover:bg-gray-900 transition"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://www.kaggle.com/fouratmejri"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-medium shadow hover:bg-purple-700 transition"
-        >
-          Kaggle
-        </a>
+export default function Contact() {
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/fourat-mejri",
+      icon: Linkedin,
+      color: "from-blue-600 to-blue-700",
+      bgColor: "bg-blue-50",
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/FouratMejri99",
+      icon: Github,
+      color: "from-gray-800 to-gray-900",
+      bgColor: "bg-gray-50",
+    },
+    {
+      name: "Kaggle",
+      url: "https://www.kaggle.com/fouratmejri",
+      icon: ExternalLink,
+      color: "from-purple-600 to-purple-700",
+      bgColor: "bg-purple-50",
+    },
+  ];
+
+  return (
+    <section id="contact" className="py-24 text-center bg-gradient-to-b from-white to-gray-50 px-6 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
       </div>
 
-      {/* Contact Details */}
-      <div className="space-y-2 text-gray-700">
-        <p>
-          Email:{" "}
-          <a
-            href="mailto:fouratmejri97@gmail.com"
-            className="text-blue-600 hover:underline"
-          >
-            fouratmejri97@gmail.com
-          </a>
-        </p>
-        <p>
-          Phone:{" "}
-          <a href="tel:+21652610305" className="text-blue-600 hover:underline">
-            +216 52 610 305
-          </a>
-        </p>
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            Get In Touch
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            I'm currently open to new opportunities or collaborations. You can reach
+            me via LinkedIn, GitHub, Kaggle, email, or phone.
+          </p>
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {socialLinks.map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <motion.a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                className={`${social.bgColor} p-4 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group`}
+              >
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${social.color} flex items-center justify-center mb-2 group-hover:scale-110 transition-transform`}>
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-gray-700 font-semibold">{social.name}</span>
+              </motion.a>
+            );
+          })}
+        </motion.div>
+
+        {/* Contact Details */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 max-w-md mx-auto"
+        >
+          <div className="space-y-4">
+            <motion.a
+              href="mailto:fouratmejri97@gmail.com"
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center justify-center gap-3 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors group"
+            >
+              <div className="p-2 bg-blue-600 rounded-lg group-hover:scale-110 transition-transform">
+                <Mail className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-gray-700 font-medium">fouratmejri97@gmail.com</span>
+            </motion.a>
+            <motion.a
+              href="tel:+21652610305"
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center justify-center gap-3 p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors group"
+            >
+              <div className="p-2 bg-purple-600 rounded-lg group-hover:scale-110 transition-transform">
+                <Phone className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-gray-700 font-medium">+216 52 610 305</span>
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,146 +1,176 @@
+"use client";
+import { motion } from "framer-motion";
+import { Code2, Briefcase, Rocket, Target } from "lucide-react";
+
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white text-center px-6">
-      <h2 className="text-4xl font-bold text-gray-800 mb-10">About Me</h2>
+    <section id="about" className="py-24 bg-white text-center px-6 relative">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4"
+      >
+        About Me
+      </motion.h2>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-12 rounded-full"
+      />
 
-      <div className="max-w-5xl mx-auto text-gray-600 space-y-6 leading-relaxed">
-        <p>
-          Im <span className="font-semibold text-gray-800">Fourat Mejri</span>,
-          a passionate{" "}
-          <span className="text-blue-600 font-medium">Software Engineer</span>{" "}
-          based in Tunis, Tunisia. I specialize in{" "}
-          <span className="font-medium">full-stack web development</span>,
-          building scalable, secure, and high-performing applications across a
-          variety of modern tech stacks.
-        </p>
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-gray-600 space-y-6 leading-relaxed mb-12"
+        >
+          <p className="text-lg">
+            I'm <span className="font-semibold text-gray-800">Fourat Mejri</span>,
+            a passionate{" "}
+            <span className="text-blue-600 font-semibold">Software Engineer</span>{" "}
+            based in Tunis, Tunisia. I specialize in{" "}
+            <span className="font-semibold text-gray-800">full-stack web development</span>,
+            building scalable, secure, and high-performing applications across a
+            variety of modern tech stacks.
+          </p>
 
-        <p>
-          I thrive on turning complex problems into elegant, efficient
-          solutions. My experience spans front-end, back-end, DevOps, and cloud
-          technologies, giving me a holistic understanding of software
-          engineering and product lifecycle management.
-        </p>
+          <p className="text-lg">
+            I thrive on turning complex problems into elegant, efficient
+            solutions. My experience spans front-end, back-end, DevOps, and cloud
+            technologies, giving me a holistic understanding of software
+            engineering and product lifecycle management.
+          </p>
+        </motion.div>
 
-        <p>
-          Over the past few years, I’ve contributed to several impactful
-          projects — from developing a{" "}
-          <span className="font-semibold">CRM marketplace for agencies</span> at{" "}
-          <span className="font-medium">Tnker</span>, to building a{" "}
-          <span className="font-semibold">
-            real-time streaming platform (Vibo)
-          </span>{" "}
-          for gamers, and an{" "}
-          <span className="font-semibold">
-            AI-powered e-commerce app (AI-Shop)
-          </span>{" "}
-          with virtual try-on capabilities.
-        </p>
-
-        <p>
-          I’ve collaborated with clients internationally as a{" "}
-          <span className="font-medium">freelance full-stack developer</span>,
-          delivering custom web apps and APIs using technologies like{" "}
-          <span className="font-semibold">
-            React, Next.js, NestJS, Node.js, and Docker
-          </span>
-          . My background also includes experience with{" "}
-          <span className="font-semibold">
-            Spring Boot, Angular, Vue.js, Go, and Python
-          </span>
-          .
-        </p>
-
-        <div className="mt-10 grid md:grid-cols-2 gap-6 text-left">
-          <div className="bg-gray-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              ⚙️ Technical Expertise
-            </h3>
-            <ul className="list-disc ml-5 space-y-1 text-gray-700">
-              <li>
-                <span className="font-medium">Frontend:</span> React (Hooks,
-                Context, Next.js), React Native, Angular 15+, Vue.js,
-                TypeScript, Tailwind CSS, HTML5, CSS3, Sass/Less, Ionic
+        <div className="mt-16 grid md:grid-cols-2 gap-8 text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 bg-blue-600 rounded-lg">
+                <Code2 className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800">
+                Technical Expertise
+              </h3>
+            </div>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold mt-1">•</span>
+                <span><span className="font-semibold">Frontend:</span> React (Hooks, Context, Next.js), React Native, Angular 15+, Vue.js, TypeScript, Tailwind CSS, HTML5, CSS3, Sass/Less, Ionic</span>
               </li>
-              <li>
-                <span className="font-medium">Backend:</span> Node.js, NestJS,
-                Spring Boot (Java), Python (Flask, FastAPI), Laravel, Symfony,
-                Express.js
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold mt-1">•</span>
+                <span><span className="font-semibold">Backend:</span> Node.js, NestJS, Spring Boot (Java), Python (Flask, FastAPI), Laravel, Symfony, Express.js</span>
               </li>
-              <li>
-                <span className="font-medium">Databases:</span> PostgreSQL,
-                MongoDB, MySQL, Firebase, Oracle, Redis, Elasticsearch
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold mt-1">•</span>
+                <span><span className="font-semibold">Databases:</span> PostgreSQL, MongoDB, MySQL, Firebase, Oracle, Redis, Elasticsearch</span>
               </li>
-              <li>
-                <span className="font-medium">DevOps & Cloud:</span> Docker,
-                Kubernetes, GitHub Actions, Jenkins, AWS, GCP, Microsoft Azure
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold mt-1">•</span>
+                <span><span className="font-semibold">DevOps & Cloud:</span> Docker, Kubernetes, GitHub Actions, Jenkins, AWS, GCP, Microsoft Azure</span>
               </li>
-              <li>
-                <span className="font-medium">Testing & QA:</span> Jest,
-                Cypress, Mocha, Chai, Unit Testing, Integration Testing
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold mt-1">•</span>
+                <span><span className="font-semibold">Testing & QA:</span> Jest, Cypress, Mocha, Chai, Unit Testing, Integration Testing</span>
               </li>
-              <li>
-                <span className="font-medium">Blockchain & Web3:</span> Smart
-                Contracts, Solidity, Ethereum, Web3.js, NFT Development
-              </li>
-              <li>
-                <span className="font-medium">Other Tools & Skills:</span> REST
-                APIs, JWT, Nginx, PM2, Sentry, Agile (Scrum & Kanban), System
-                Design, Figma, Storybook, Angular Material
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold mt-1">•</span>
+                <span><span className="font-semibold">Blockchain & Web3:</span> Smart Contracts, Solidity, Ethereum, Web3.js, NFT Development</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="bg-gray-50 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              💼 Professional Experience
-            </h3>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>
-                <span className="font-medium">
-                  Software Engineer – Tnker (2024–2025)
-                </span>
-                : Full-stack React + NestJS CRM system with CI/CD.
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 bg-purple-600 rounded-lg">
+                <Briefcase className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800">
+                Professional Experience
+              </h3>
+            </div>
+            <ul className="space-y-4 text-gray-700">
+              <li className="flex items-start gap-2">
+                <Rocket className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-gray-800">Software Engineer – Tnker (2024–2025)</span>
+                  <p className="text-sm text-gray-600">Full-stack React + NestJS CRM system with CI/CD.</p>
+                </div>
               </li>
-              <li>
-                <span className="font-medium">
-                  Freelance Developer (2023–Present)
-                </span>
-                : Remote projects on Upwork/Fiverr using Next.js, Node.js, and
-                Docker.
+              <li className="flex items-start gap-2">
+                <Rocket className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-gray-800">Freelance Developer (2023–Present)</span>
+                  <p className="text-sm text-gray-600">Remote projects on Upwork/Fiverr using Next.js, Node.js, and Docker.</p>
+                </div>
               </li>
-              <li>
-                <span className="font-medium">Intern – J’inspire Group</span>:
-                Spring Boot + Angular medicine management system.
+              <li className="flex items-start gap-2">
+                <Target className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-gray-800">Intern – J'inspire Group</span>
+                  <p className="text-sm text-gray-600">Spring Boot + Angular medicine management system.</p>
+                </div>
               </li>
-              <li>
-                <span className="font-medium">Intern – OACA</span>: React +
-                Symfony app for airport baggage tracking.
+              <li className="flex items-start gap-2">
+                <Target className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-gray-800">Intern – OACA</span>
+                  <p className="text-sm text-gray-600">React + Symfony app for airport baggage tracking.</p>
+                </div>
               </li>
-              <li>
-                <span className="font-medium">Intern – CERT</span>: Spring Boot
-                + Angular app for 4G service quality analysis.
+              <li className="flex items-start gap-2">
+                <Target className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <span className="font-semibold text-gray-800">Intern – CERT</span>
+                  <p className="text-sm text-gray-600">Spring Boot + Angular app for 4G service quality analysis.</p>
+                </div>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
-        <p className="mt-10">
-          Beyond coding, I enjoy exploring new technologies, contributing to
-          open-source projects, and continuously improving my skills through
-          learning and experimentation.
-        </p>
-
-        <p>
-          I’m currently open to new opportunities — whether full-time,
-          freelance, or collaborative projects. Feel free to{" "}
-          <a
-            href="#contact"
-            className="text-blue-600 font-medium hover:underline"
-          >
-            get in touch
-          </a>
-          !
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 text-gray-600 space-y-4"
+        >
+          <p className="text-lg">
+            Beyond coding, I enjoy exploring new technologies, contributing to
+            open-source projects, and continuously improving my skills through
+            learning and experimentation.
+          </p>
+          <p className="text-lg">
+            I'm currently open to new opportunities — whether full-time,
+            freelance, or collaborative projects. Feel free to{" "}
+            <a
+              href="#contact"
+              className="text-blue-600 font-semibold hover:text-purple-600 hover:underline transition-colors"
+            >
+              get in touch
+            </a>
+            !
+          </p>
+        </motion.div>
       </div>
     </section>
   );
