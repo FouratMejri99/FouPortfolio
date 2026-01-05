@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Linkedin, Github, Mail, Phone, ExternalLink } from "lucide-react";
+import { Linkedin, Github, Mail, Phone, ExternalLink, Star } from "lucide-react";
 
 export default function Contact() {
   const socialLinks = [
@@ -17,6 +17,13 @@ export default function Contact() {
       icon: Github,
       color: "from-gray-800 to-gray-900",
       bgColor: "bg-gray-50",
+    },
+    {
+      name: "Upwork",
+      url: "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+      icon: Star,
+      color: "from-green-500 to-emerald-600",
+      bgColor: "bg-green-50",
     },
     {
       name: "Kaggle",
@@ -48,7 +55,7 @@ export default function Contact() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
             I'm currently open to new opportunities or collaborations. You can reach
-            me via LinkedIn, GitHub, Kaggle, email, or phone.
+            me via LinkedIn, GitHub, Upwork, Kaggle, email, or phone.
           </p>
         </motion.div>
 

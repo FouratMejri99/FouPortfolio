@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowDown, Code, Zap } from "lucide-react";
+import { ArrowDown, Code, ExternalLink, Star, Zap } from "lucide-react";
 
 export default function Header() {
   return (
@@ -41,6 +41,27 @@ export default function Header() {
             Software Engineer
           </span>
           <Zap className="w-5 h-5 text-purple-600" />
+        </motion.div>
+
+        {/* Upwork Badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.45 }}
+          className="mb-6"
+        >
+          <motion.a
+            href="https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <Star className="w-5 h-5 fill-current" />
+            <span>Top Rated Freelancer on Upwork</span>
+            <ExternalLink className="w-4 h-4" />
+          </motion.a>
         </motion.div>
 
         <motion.p
