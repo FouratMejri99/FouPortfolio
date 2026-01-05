@@ -54,7 +54,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-24 bg-gradient-to-b from-gray-50 to-white px-6 relative"
+      className="py-24 bg-gray-900 px-6 relative"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export default function Projects() {
           Projects
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-        <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">
+        <p className="mt-6 text-gray-300 text-lg max-w-2xl mx-auto">
           A collection of projects showcasing my skills and experience in
           full-stack development
         </p>
@@ -82,7 +82,7 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
             whileHover={{ y: -8 }}
-            className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+            className="group bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 flex flex-col"
           >
             <div className={`h-2 bg-gradient-to-r ${p.color}`}></div>
             <div className="p-6 flex-1 flex flex-col">
@@ -91,23 +91,23 @@ export default function Projects() {
                   className={`w-8 h-8 bg-gradient-to-r ${p.color} bg-clip-text text-transparent`}
                 />
                 {p.link !== "restricted" && (
-                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                  <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
                 )}
                 {p.link === "restricted" && (
                   <Lock className="w-5 h-5 text-gray-400" />
                 )}
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                 {p.title}
               </h3>
-              <p className="text-gray-600 text-sm mb-6 flex-1 leading-relaxed">
+              <p className="text-gray-300 text-sm mb-6 flex-1 leading-relaxed">
                 {p.desc}
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {p.tech.slice(0, 4).map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
+                    className="px-3 py-1 bg-gray-700 text-gray-300 text-xs font-medium rounded-full"
                   >
                     {tech}
                   </span>
@@ -146,7 +146,7 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 p-4"
+            className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-50 p-4"
             onClick={() => setShowAlert(false)}
           >
             <motion.div
@@ -154,15 +154,15 @@ export default function Projects() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm text-center border border-gray-100"
+              className="bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-sm text-center border border-gray-700"
             >
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Lock className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+              <h3 className="text-2xl font-bold text-white mb-2">
                 Access Restricted
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 You need{" "}
                 <span className="font-semibold text-blue-600">
                   Fourat permission

@@ -99,7 +99,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-16 bg-white px-6 relative overflow-hidden"
+      className="py-16 bg-gray-900 px-6 relative overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Compact Header */}
@@ -110,11 +110,11 @@ export default function Testimonials() {
           transition={{ duration: 0.4 }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
             Client Reviews
           </h2>
           <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-3"></div>
-          <p className="text-sm text-gray-500">Trusted by clients worldwide</p>
+          <p className="text-sm text-gray-400">Trusted by clients worldwide</p>
         </motion.div>
 
         {/* Carousel Container */}
@@ -122,17 +122,17 @@ export default function Testimonials() {
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 -translate-x-4 hidden md:flex items-center justify-center border border-gray-200"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 -translate-x-4 hidden md:flex items-center justify-center border border-gray-700"
             aria-label="Previous testimonials"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-700" />
+            <ChevronLeft className="w-5 h-5 text-gray-300" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 translate-x-4 hidden md:flex items-center justify-center border border-gray-200"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-gray-800/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 translate-x-4 hidden md:flex items-center justify-center border border-gray-700"
             aria-label="Next testimonials"
           >
-            <ChevronRight className="w-5 h-5 text-gray-700" />
+            <ChevronRight className="w-5 h-5 text-gray-300" />
           </button>
 
           {/* Horizontal Scrollable Container */}
@@ -157,15 +157,15 @@ export default function Testimonials() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 whileHover={{ y: -5, shadow: "lg" }}
-                className="w-[300px] bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col relative overflow-hidden flex-shrink-0"
+                className="w-[300px] bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700 flex flex-col relative overflow-hidden flex-shrink-0"
               >
                 {/* Decorative top accent */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500"></div>
 
                 {/* Quote Icon */}
                 <div className="mb-4 flex items-start justify-between">
-                  <div className="p-2 bg-blue-50 rounded-lg">
-                    <Quote className="w-5 h-5 text-blue-600" />
+                  <div className="p-2 bg-blue-900/30 rounded-lg">
+                    <Quote className="w-5 h-5 text-blue-400" />
                   </div>
                   {/* Rating Stars */}
                   <div className="flex gap-0.5">
@@ -183,16 +183,16 @@ export default function Testimonials() {
                 </div>
 
                 {/* Review Text */}
-                <p className="text-gray-700 mb-5 flex-1 leading-relaxed text-sm line-clamp-4">
+                <p className="text-gray-300 mb-5 flex-1 leading-relaxed text-sm line-clamp-4">
                   &ldquo;{review.review}&rdquo;
                 </p>
 
                 {/* Client Info */}
-                <div className="pt-4 border-t border-gray-100 mb-3">
-                  <p className="font-bold text-gray-900 text-sm mb-1">
+                <div className="pt-4 border-t border-gray-700 mb-3">
+                  <p className="font-bold text-white text-sm mb-1">
                     {review.clientName}
                   </p>
-                  <p className="text-xs text-gray-500 line-clamp-1">
+                  <p className="text-xs text-gray-400 line-clamp-1">
                     {review.project}
                   </p>
                   {review.date && (
@@ -208,7 +208,7 @@ export default function Testimonials() {
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-green-600 hover:text-green-700 transition-colors pt-3 border-t border-gray-100"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-green-400 hover:text-green-300 transition-colors pt-3 border-t border-gray-700"
                 >
                   <Star className="w-3.5 h-3.5 fill-green-600 text-green-600" />
                   <span>View on Upwork</span>

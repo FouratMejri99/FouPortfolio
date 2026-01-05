@@ -4,7 +4,7 @@ import { Code2, Briefcase, Rocket, Target } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white text-center px-6 relative">
+    <section id="about" className="py-24 bg-gray-900 text-center px-6 relative">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -28,14 +28,14 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-600 space-y-6 leading-relaxed mb-12"
+          className="text-gray-300 space-y-6 leading-relaxed mb-12"
         >
           <p className="text-lg">
-            I'm <span className="font-semibold text-gray-800">Fourat Mejri</span>,
+            I'm <span className="font-semibold text-white">Fourat Mejri</span>,
             a passionate{" "}
-            <span className="text-blue-600 font-semibold">Software Engineer</span>{" "}
+            <span className="text-blue-400 font-semibold">Software Engineer</span>{" "}
             based in Tunis, Tunisia. I specialize in{" "}
-            <span className="font-semibold text-gray-800">full-stack web development</span>,
+            <span className="font-semibold text-white">full-stack web development</span>,
             building scalable, secure, and high-performing applications across a
             variety of modern tech stacks.
           </p>
@@ -54,17 +54,17 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100"
+            className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-blue-600 rounded-lg">
                 <Code2 className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800">
+              <h3 className="text-2xl font-bold text-white">
                 Technical Expertise
               </h3>
             </div>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-gray-300">
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 font-bold mt-1">•</span>
                 <span><span className="font-semibold">Frontend:</span> React (Hooks, Context, Next.js), React Native, Angular 15+, Vue.js, TypeScript, Tailwind CSS, HTML5, CSS3, Sass/Less, Ionic</span>
@@ -97,50 +97,50 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100"
+            className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-purple-600 rounded-lg">
                 <Briefcase className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800">
+              <h3 className="text-2xl font-bold text-white">
                 Professional Experience
               </h3>
             </div>
-            <ul className="space-y-4 text-gray-700">
+            <ul className="space-y-4 text-gray-300">
               <li className="flex items-start gap-2">
                 <Rocket className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="font-semibold text-gray-800">Software Engineer – Tnker (2024–2025)</span>
-                  <p className="text-sm text-gray-600">Full-stack React + NestJS CRM system with CI/CD.</p>
+                  <span className="font-semibold text-white">Software Engineer – Tnker (2024–2025)</span>
+                  <p className="text-sm text-gray-400">Full-stack React + NestJS CRM system with CI/CD.</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <Rocket className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="font-semibold text-gray-800">Freelance Developer (2023–Present)</span>
-                  <p className="text-sm text-gray-600">Remote projects on Upwork/Fiverr using Next.js, Node.js, and Docker.</p>
+                  <span className="font-semibold text-white">Freelance Developer (2023–Present)</span>
+                  <p className="text-sm text-gray-400">Remote projects on Upwork/Fiverr using Next.js, Node.js, and Docker.</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <Target className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="font-semibold text-gray-800">Intern – J'inspire Group</span>
-                  <p className="text-sm text-gray-600">Spring Boot + Angular medicine management system.</p>
+                  <span className="font-semibold text-white">Intern – J'inspire Group</span>
+                  <p className="text-sm text-gray-400">Spring Boot + Angular medicine management system.</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <Target className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="font-semibold text-gray-800">Intern – OACA</span>
-                  <p className="text-sm text-gray-600">React + Symfony app for airport baggage tracking.</p>
+                  <span className="font-semibold text-white">Intern – OACA</span>
+                  <p className="text-sm text-gray-400">React + Symfony app for airport baggage tracking.</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <Target className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="font-semibold text-gray-800">Intern – CERT</span>
-                  <p className="text-sm text-gray-600">Spring Boot + Angular app for 4G service quality analysis.</p>
+                  <span className="font-semibold text-white">Intern – CERT</span>
+                  <p className="text-sm text-gray-400">Spring Boot + Angular app for 4G service quality analysis.</p>
                 </div>
               </li>
             </ul>
@@ -152,7 +152,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 text-gray-600 space-y-4"
+          className="mt-12 text-gray-300 space-y-4"
         >
           <p className="text-lg">
             Beyond coding, I enjoy exploring new technologies, contributing to
@@ -164,7 +164,7 @@ export default function About() {
             freelance, or collaborative projects. Feel free to{" "}
             <a
               href="#contact"
-              className="text-blue-600 font-semibold hover:text-purple-600 hover:underline transition-colors"
+              className="text-blue-400 font-semibold hover:text-purple-400 hover:underline transition-colors"
             >
               get in touch
             </a>

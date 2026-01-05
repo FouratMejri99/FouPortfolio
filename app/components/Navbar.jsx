@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100"
+          ? "bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800"
           : "bg-transparent"
       }`}
     >
@@ -34,22 +34,22 @@ export default function Navbar() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 group"
+              className="relative text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200 group"
             >
               {link}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
         </div>
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors"
           aria-label="Toggle menu"
         >
           {open ? (
-            <X className="w-6 h-6 text-gray-700" />
+            <X className="w-6 h-6 text-gray-300" />
           ) : (
-            <Menu className="w-6 h-6 text-gray-700" />
+            <Menu className="w-6 h-6 text-gray-300" />
           )}
         </button>
       </div>
@@ -60,7 +60,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/98 backdrop-blur-md border-t border-gray-100 overflow-hidden"
+            className="md:hidden bg-gray-900/98 backdrop-blur-md border-t border-gray-800 overflow-hidden"
           >
             <div className="px-6 py-4 space-y-3">
               {links.map((link) => (
@@ -68,7 +68,7 @@ export default function Navbar() {
                   key={link}
                   href={`#${link.toLowerCase()}`}
                   onClick={() => setOpen(false)}
-                  className="block text-gray-700 hover:text-blue-600 font-medium py-2 transition-colors duration-200"
+                  className="block text-gray-300 hover:text-blue-400 font-medium py-2 transition-colors duration-200"
                 >
                   {link}
                 </a>

@@ -6,13 +6,13 @@ export default function Header() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative z-10">
@@ -23,7 +23,7 @@ export default function Header() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-4"
+          className="text-5xl md:text-7xl font-extrabold text-white mb-4"
         >
           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
             Fourat Mejri
@@ -37,7 +37,7 @@ export default function Header() {
           className="flex items-center justify-center gap-2 mb-4"
         >
           <Code className="w-5 h-5 text-blue-600" />
-          <span className="text-xl md:text-2xl font-semibold text-gray-700">
+          <span className="text-xl md:text-2xl font-semibold text-gray-300">
             Software Engineer
           </span>
           <Zap className="w-5 h-5 text-purple-600" />
@@ -68,10 +68,10 @@ export default function Header() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          className="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
           A passionate Software Engineer specializing in{" "}
-          <span className="font-semibold text-gray-800">
+          <span className="font-semibold text-white">
             full-stack development
           </span>
           , crafting clean and scalable digital experiences.
@@ -96,7 +96,7 @@ export default function Header() {
             href="#contact"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300 shadow-md"
+            className="inline-flex items-center gap-2 bg-gray-800 text-blue-400 px-8 py-4 rounded-full font-semibold border-2 border-blue-500 hover:bg-gray-700 transition-all duration-300 shadow-md"
           >
             Get In Touch
           </motion.a>
@@ -113,12 +113,12 @@ export default function Header() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-gray-500 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+            className="w-1 h-3 bg-gray-500 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>

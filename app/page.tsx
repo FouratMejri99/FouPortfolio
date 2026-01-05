@@ -7,7 +7,7 @@ import Testimonials from "./components/Testimonials";
 
 export default function Page() {
   return (
-    <main className="font-sans">
+    <main className="font-sans bg-gray-900">
       <Navbar />
       <Header />
 
