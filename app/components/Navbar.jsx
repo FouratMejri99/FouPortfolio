@@ -14,7 +14,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const links = ["Home", "Projects", "Contact"];
+  const links = ["Home", "Projects", "Testimonials", "Contact"];
 
   return (
     <nav
@@ -28,9 +28,7 @@ export default function Navbar() {
         <Link
           href="#home"
           className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-purple-700 transition-all"
-        >
-          Fourat Mejri
-        </Link>
+        ></Link>
         <div className="hidden md:flex items-center space-x-8">
           {links.map((link, index) => (
             <a
