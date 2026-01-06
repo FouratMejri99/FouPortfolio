@@ -39,6 +39,22 @@ export default function Projects() {
       link: "https://ai-shop-umber.vercel.app/",
       color: "from-indigo-500 to-purple-500",
     },
+
+    {
+      title: "AdminPanel Dashboard – CRM Platform",
+      desc: "AdminPanel is a comprehensive CRM dashboard designed to streamline business operations with features like user management, analytics, and reporting tools.",
+      tech: [
+        "Next.js",
+        "NestJS",
+        "TypeScript",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Python",
+        "Docker",
+      ],
+      link: "https://admin-panel-ecru-eight.vercel.app/login",
+      color: "from-yellow-500 to-white-500",
+    },
   ];
 
   const handleLinkClick = (link) => {
@@ -52,10 +68,7 @@ export default function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      className="py-24 bg-gray-900 px-6 relative"
-    >
+    <section id="projects" className="py-24 bg-gray-900 px-6 relative">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
