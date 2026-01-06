@@ -63,4 +63,14 @@ export const upworkReviews = [
     date: "January 2025",
     upworkUrl: "https://www.linkedin.com/in/fourat-mejri/",
   },
+  {
+    clientName: "tekraj_dhimal",
+    project: "Full Stack Developer to Fix Bugs and Add Features",
+    rating: 5,
+    review:
+      "It's clear this product was made with care and attention to detail. Worth every penny! Professionalism of work, Exceeded expectations, Deep understanding, and Politeness. specific actions that illustrate the great experience. The results exceeded my expectations, and I would absolutely hire them again for future projects",
+    date: "Dec 2024",
+    upworkUrl:
+      "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+  },
 ];
