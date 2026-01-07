@@ -2,11 +2,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isDocumentationPage = pathname === "/documentation";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -15,6 +18,12 @@ export default function Navbar() {
   }, []);
 
   const links = ["Home", "Projects", "Testimonials", "Contact"];
+  const externalLinks = [
+    { name: "Documentation", href: "/documentation" }
+  ];
+  
+  // Filter links based on current page
+  const displayLinks = isDocumentationPage ? ["Home"] : links;
 
   return (
     <nav
@@ -26,19 +35,38 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <Link
-          href="#home"
+          href={isDocumentationPage ? "/" : "#home"}
           className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-purple-700 transition-all"
         ></Link>
         <div className="hidden md:flex items-center space-x-8">
-          {links.map((link, index) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+          {displayLinks.map((link, index) => {
+            const href = link === "Home" && isDocumentationPage 
+              ? "/" 
+              : `#${link.toLowerCase()}`;
+            const Component = link === "Home" && isDocumentationPage 
+              ? Link 
+              : "a";
+            
+            return (
+              <Component
+                key={link}
+                href={href}
+                className="relative text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200 group"
+              >
+                {link}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
+              </Component>
+            );
+          })}
+          {externalLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
               className="relative text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200 group"
             >
-              {link}
+              {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </Link>
           ))}
         </div>
         <button
@@ -63,15 +91,34 @@ export default function Navbar() {
             className="md:hidden bg-gray-900/98 backdrop-blur-md border-t border-gray-800 overflow-hidden"
           >
             <div className="px-6 py-4 space-y-3">
-              {links.map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
+              {displayLinks.map((link) => {
+                const href = link === "Home" && isDocumentationPage 
+                  ? "/" 
+                  : `#${link.toLowerCase()}`;
+                const Component = link === "Home" && isDocumentationPage 
+                  ? Link 
+                  : "a";
+                
+                return (
+                  <Component
+                    key={link}
+                    href={href}
+                    onClick={() => setOpen(false)}
+                    className="block text-gray-300 hover:text-blue-400 font-medium py-2 transition-colors duration-200"
+                  >
+                    {link}
+                  </Component>
+                );
+              })}
+              {externalLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
                   onClick={() => setOpen(false)}
                   className="block text-gray-300 hover:text-blue-400 font-medium py-2 transition-colors duration-200"
                 >
-                  {link}
-                </a>
+                  {link.name}
+                </Link>
               ))}
             </div>
           </motion.div>

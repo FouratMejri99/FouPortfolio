@@ -32,16 +32,18 @@ export const upworkReviews = [
     date: "Dec 19, 2025 - Jan 3, 2026",
     upworkUrl:
       "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+    platform: "upwork",
   },
   {
     clientName: "Michael",
     project: "Full-Stack Advisor system website developement",
     rating: 5,
     review:
-      "Working with Fourat was an absolute pleasure. He consistently went above and beyond, delivering great work even under tight deadlines. Communication was smooth, he was proactive with solutions, and genuinely cared about the results. I’d happily work with him again and highly recommend him to anyone looking for a reliable, skilled freelancer.",
+      "Working with Fourat was an absolute pleasure. He consistently went above and beyond, delivering great work even under tight deadlines. Communication was smooth, he was proactive with solutions, and genuinely cared about the results. I'd happily work with him again and highly recommend him to anyone looking for a reliable, skilled freelancer.",
     date: "Nov 13, 2025",
     upworkUrl:
       "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+    platform: "upwork",
   },
   {
     clientName: "Kais",
@@ -53,6 +55,7 @@ export const upworkReviews = [
     date: "Oct 12, 2025",
     upworkUrl:
       "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+    platform: "upwork",
   },
   {
     clientName: "Ashref Gamoudi",
@@ -62,6 +65,7 @@ export const upworkReviews = [
       "I had the pleasure of supervising Fourat Mejri during his internship at Tnker, where he worked on developing a key part of our Tnker Marketplace product. Fourat displayed exceptional skills in web development, using React.js, Express, Node.js, and Firebase to deliver high-quality, scalable features that significantly contributed to our platform's functionality. ",
     date: "January 2025",
     upworkUrl: "https://www.linkedin.com/in/fourat-mejri/",
+    platform: "linkedin",
   },
   {
     clientName: "tekraj_dhimal",
@@ -72,5 +76,6 @@ export const upworkReviews = [
     date: "Dec 2024",
     upworkUrl:
       "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+    platform: "upwork",
   },
 ];

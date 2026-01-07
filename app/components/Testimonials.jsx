@@ -6,6 +6,7 @@ import {
   ExternalLink,
   Quote,
   Star,
+  Linkedin,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { upworkReviews } from "../data/reviews";
@@ -200,20 +201,38 @@ export default function Testimonials() {
                   )}
                 </div>
 
-                {/* Upwork Link */}
-                <a
-                  href={
-                    review.upworkUrl ||
-                    "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share"
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-green-400 hover:text-green-300 transition-colors pt-3 border-t border-gray-700"
-                >
-                  <Star className="w-3.5 h-3.5 fill-green-600 text-green-600" />
-                  <span>View on Upwork</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+                {/* Platform Link */}
+                {(() => {
+                  const platform = review.platform || 
+                    (review.upworkUrl?.includes('linkedin.com') ? 'linkedin' : 'upwork');
+                  const isLinkedIn = platform === 'linkedin';
+                  
+                  return (
+                    <a
+                      href={
+                        review.upworkUrl ||
+                        (isLinkedIn 
+                          ? "https://www.linkedin.com/in/fourat-mejri/" 
+                          : "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share")
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 text-xs font-medium transition-colors pt-3 border-t border-gray-700 ${
+                        isLinkedIn 
+                          ? "text-blue-400 hover:text-blue-300" 
+                          : "text-green-400 hover:text-green-300"
+                      }`}
+                    >
+                      {isLinkedIn ? (
+                        <Linkedin className="w-3.5 h-3.5 fill-blue-600 text-blue-600" />
+                      ) : (
+                        <Star className="w-3.5 h-3.5 fill-green-600 text-green-600" />
+                      )}
+                      <span>View on {isLinkedIn ? 'LinkedIn' : 'Upwork'}</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  );
+                })()}
               </motion.div>
             ))}
           </div>
