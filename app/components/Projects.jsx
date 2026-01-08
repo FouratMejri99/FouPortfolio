@@ -69,6 +69,14 @@ export default function Projects() {
       link: "https://admin-panel-ecru-eight.vercel.app/login",
       color: "from-yellow-500 to-white-500",
     },
+
+    {
+      title: "Landing Page",
+      desc: "Landing page for aesthetic center using modern web technologies to create an engaging user experience.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      link: "https://belle-five.vercel.app/",
+      color: "from-pink-500 to-white-500",
+    },
   ];
 
   const handleLinkClick = (link) => {

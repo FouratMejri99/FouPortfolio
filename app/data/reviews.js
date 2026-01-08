@@ -78,4 +78,15 @@ export const upworkReviews = [
       "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
     platform: "upwork",
   },
+  {
+    clientName: "Pierre",
+    project: "web developer for Landing Page",
+    rating: 5,
+    review:
+      "perfect and very responsive seller, great service and support, i hope i can do more with him, and highly recommend him to everyone. thank you.",
+    date: "Dec 2024",
+    upworkUrl:
+      "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+    platform: "upwork",
+  },
 ];
