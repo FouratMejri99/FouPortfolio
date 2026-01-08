@@ -105,10 +105,17 @@ export default function Documentation() {
         if (fileContents.length > 0) {
           // Combine all markdown files into one content string
           const combinedContent = fileContents
-            .map(
-              (file) =>
-                `# ${file.name.replace(/\.md$/i, "")}\n\n${file.content}`
-            )
+            .map((file) => {
+              // Remove .md extension and filter out "readme" (case-insensitive)
+              let title = file.name.replace(/\.md$/i, "");
+              title = title.replace(/^readme$/i, "").trim();
+              
+              // Only add heading if title is not empty after removing readme
+              if (title) {
+                return `# ${title}\n\n${file.content}`;
+              }
+              return file.content;
+            })
             .join("\n\n---\n\n");
 
           setContent(combinedContent);
@@ -199,9 +206,29 @@ export default function Documentation() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gray-800 rounded-lg p-8 border border-gray-700 prose prose-invert max-w-none"
+              className="bg-gradient-to-br from-gray-800/95 to-gray-900/95 rounded-xl p-8 md:p-12 border border-gray-700/50 shadow-2xl backdrop-blur-sm"
             >
-              <div className="prose-headings:text-white prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-4 prose-h1:mt-8 prose-h1:first:mt-0 prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-3 prose-h2:mt-6 prose-h3:text-xl prose-h3:font-semibold prose-h3:mb-2 prose-h3:mt-4 prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-code:text-blue-400 prose-code:bg-gray-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-700 prose-pre:rounded-lg prose-pre:p-4 prose-pre:overflow-x-auto prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-900/10 prose-blockquote:text-gray-300 prose-blockquote:pl-4 prose-blockquote:border-l-4 prose-img:rounded-lg prose-img:border prose-img:border-gray-700 prose-hr:border-gray-700">
+              <div className="prose prose-invert max-w-none 
+                prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
+                prose-h1:text-4xl prose-h1:font-extrabold prose-h1:mb-6 prose-h1:mt-10 prose-h1:first:mt-0 prose-h1:bg-gradient-to-r prose-h1:from-blue-400 prose-h1:to-purple-400 prose-h1:bg-clip-text prose-h1:text-transparent prose-h1:pb-2 prose-h1:border-b prose-h1:border-gray-700
+                prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h2:text-blue-300
+                prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-6 prose-h3:text-purple-300
+                prose-h4:text-xl prose-h4:font-semibold prose-h4:mb-2 prose-h4:mt-4 prose-h4:text-gray-200
+                prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-5 prose-p:text-base prose-p:font-normal
+                prose-a:text-blue-400 prose-a:no-underline prose-a:font-medium hover:prose-a:text-blue-300 hover:prose-a:underline prose-a:transition-colors
+                prose-strong:text-white prose-strong:font-bold
+                prose-code:text-blue-400 prose-code:bg-gray-900/80 prose-code:px-2 prose-code:py-1 prose-code:rounded-md prose-code:text-sm prose-code:font-mono prose-code:border prose-code:border-gray-700/50
+                prose-pre:bg-gray-900/80 prose-pre:border prose-pre:border-gray-700/50 prose-pre:rounded-xl prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:shadow-inner prose-pre:backdrop-blur-sm
+                prose-pre-code:bg-transparent prose-pre-code:border-0 prose-pre-code:p-0
+                prose-ul:text-gray-300 prose-ul:mb-5 prose-ul:space-y-2 prose-ul:list-disc prose-ul:pl-6
+                prose-ol:text-gray-300 prose-ol:mb-5 prose-ol:space-y-2 prose-ol:list-decimal prose-ol:pl-6
+                prose-li:text-gray-300 prose-li:leading-relaxed prose-li:marker:text-blue-400
+                prose-blockquote:border-blue-500 prose-blockquote:bg-blue-900/20 prose-blockquote:text-gray-200 prose-blockquote:pl-6 prose-blockquote:pr-4 prose-blockquote:py-2 prose-blockquote:border-l-4 prose-blockquote:rounded-r-lg prose-blockquote:italic prose-blockquote:my-6
+                prose-img:rounded-xl prose-img:border prose-img:border-gray-700/50 prose-img:shadow-lg prose-img:my-6 prose-img:mx-auto
+                prose-hr:border-gray-700 prose-hr:my-8 prose-hr:opacity-50
+                prose-table:w-full prose-table:my-6 prose-table:border-collapse
+                prose-th:bg-gray-800 prose-th:text-white prose-th:font-semibold prose-th:p-3 prose-th:border prose-th:border-gray-700
+                prose-td:bg-gray-800/50 prose-td:text-gray-300 prose-td:p-3 prose-td:border prose-td:border-gray-700">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {content}
                 </ReactMarkdown>

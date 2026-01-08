@@ -25,7 +25,7 @@ export default function Header() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-7xl font-extrabold text-white mb-4"
         >
-          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
+          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-white bg-clip-text text-transparent animate-gradient">
             Fourat Mejri
           </span>
         </motion.h1>
@@ -70,11 +70,9 @@ export default function Header() {
           transition={{ delay: 0.4 }}
           className="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          A passionate Software Engineer specializing in{" "}
-          <span className="font-semibold text-white">
-            full-stack development
-          </span>
-          , crafting clean and scalable digital experiences.
+          A passionate{" "}
+          <span className="font-semibold text-white"> Software Engineer </span>{" "}
+          specializing in crafting clean and scalable digital experiences.
         </motion.p>
 
         <motion.div
@@ -99,6 +97,14 @@ export default function Header() {
             className="inline-flex items-center gap-2 bg-gray-800 text-blue-400 px-8 py-4 rounded-full font-semibold border-2 border-blue-500 hover:bg-gray-700 transition-all duration-300 shadow-md"
           >
             Get In Touch
+          </motion.a>
+          <motion.a
+            href="/documentation"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 bg-gray-800 text-green-400 px-8 py-4 rounded-full font-semibold border-2 border-blue-500 hover:bg-gray-700 transition-all duration-300 shadow-md"
+          >
+            View Research
           </motion.a>
         </motion.div>
       </div>

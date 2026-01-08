@@ -8,6 +8,20 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Captely Browser extension",
+      desc: "The goal was to make these modules more stable, more accurate, and as polished as commercial-grade tools used in the data-automation market We want a system that feels production-ready, runs smoothly at scale, and never returns incorrect or incomplete data.",
+      tech: [
+        "javascript",
+        "scraping",
+        "DOM extraction",
+        "TypeScript",
+        "Tailwind CSS",
+        "json",
+      ],
+      link: "https://chromewebstore.google.com/detail/captely-trouver-des-num%C3%A9r/geleoldgbmkifjccpihinnphaanhaedi",
+      color: "from-red-500 to-orange-500",
+    },
+    {
       title: "Tnker Marketplace – CRM Platform",
       desc: "A CRM marketplace connecting agencies and clients, featuring project management, invoicing, and analytics dashboards with AI-driven recommendations.",
       tech: [
