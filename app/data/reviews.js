@@ -24,6 +24,16 @@ export const upworkReviews = [
 
   // Fake testimonials for now:
   {
+    clientName: "Oliver captely Co.founder",
+    project: "Chrome Extension Development",
+    rating: 5,
+    review:
+      " I highly recommend Fourat Mejri for his excellent work on the development of our application He demonstrated great professionalism, strong analytical skills, and excellent technical expertise.",
+    date: "Nov 20, 2025 - Jan 9, 2026",
+    upworkUrl: "https://www.linkedin.com/in/fourat-mejri/",
+    platform: "Linkedin",
+  },
+  {
     clientName: "Henrique",
     project: "React/Node.js developer for Visual Code Extension",
     rating: 5,
