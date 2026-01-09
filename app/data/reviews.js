@@ -6,6 +6,7 @@ export const upworkReviews = [
   // Example structure - replace with your actual reviews from Upwork:
   // {
   //   clientName: "John Doe",
+  //   country: "United States", // Optional: client's country
   //   project: "Full-Stack Web Application",
   //   rating: 5, // Rating out of 5 stars
   //   review: "Fourat was exceptional! Delivered exactly what was promised, on time, and with great communication throughout the project. Highly recommend!",
@@ -25,16 +26,18 @@ export const upworkReviews = [
   // Fake testimonials for now:
   {
     clientName: "Oliver captely Co.founder",
+    country: "France",
     project: "Chrome Extension Development",
     rating: 5,
     review:
-      " I highly recommend Fourat Mejri for his excellent work on the development of our application He demonstrated great professionalism, strong analytical skills, and excellent technical expertise.",
+      "Je recommande vivement Fourat Mejri pour son excellent travail sur le développement de notre application Il a fait preuve d'un grand professionnalisme, d'une forte capacité d'analyse et d'une très bonne maîtrise technique.",
     date: "Nov 20, 2025 - Jan 9, 2026",
     upworkUrl: "https://www.linkedin.com/in/fourat-mejri/",
-    platform: "Linkedin",
+    platform: "linkedin",
   },
   {
     clientName: "Henrique",
+    country: "Brazil",
     project: "React/Node.js developer for Visual Code Extension",
     rating: 5,
     review:
@@ -46,6 +49,7 @@ export const upworkReviews = [
   },
   {
     clientName: "Michael",
+    country: "United States",
     project: "Full-Stack Advisor system website developement",
     rating: 5,
     review:
@@ -57,6 +61,7 @@ export const upworkReviews = [
   },
   {
     clientName: "Kais",
+    country: "Tunisia",
     project:
       "Full Stack Developer Needed for E-Learning Website (React / MERN / Next.js)",
     rating: 5,
@@ -69,6 +74,7 @@ export const upworkReviews = [
   },
   {
     clientName: "Ashref Gamoudi",
+    country: "Tunisia",
     project: "End of studies Internship",
     rating: 5,
     review:
@@ -79,6 +85,7 @@ export const upworkReviews = [
   },
   {
     clientName: "tekraj_dhimal",
+    country: "Nepal",
     project: "Full Stack Developer to Fix Bugs and Add Features",
     rating: 5,
     review:
@@ -90,6 +97,7 @@ export const upworkReviews = [
   },
   {
     clientName: "Pierre",
+    country: "France",
     project: "web developer for Landing Page",
     rating: 5,
     review:

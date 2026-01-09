@@ -193,6 +193,11 @@ export default function Testimonials() {
                   <p className="font-bold text-white text-sm mb-1">
                     {review.clientName}
                   </p>
+                  {review.country && (
+                    <p className="text-xs text-gray-500 mb-1">
+                      {review.country}
+                    </p>
+                  )}
                   <p className="text-xs text-gray-400 line-clamp-1">
                     {review.project}
                   </p>

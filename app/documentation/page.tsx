@@ -1,14 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
-import { 
-  BookOpen, 
-  Award, 
-  Calendar, 
-  Clock, 
-  ExternalLink, 
+import {
+  Award,
+  BookOpen,
+  Calendar,
+  CheckCircle2,
+  Clock,
+  ExternalLink,
   Tag,
-  TrendingUp,
-  CheckCircle2
+  TrendingUp
 } from "lucide-react";
 import { useState } from "react";
 import Footer from "../components/Footer";
