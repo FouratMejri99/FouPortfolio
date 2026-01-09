@@ -1,238 +1,244 @@
 "use client";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { 
+  BookOpen, 
+  Award, 
+  Calendar, 
+  Clock, 
+  ExternalLink, 
+  Tag,
+  TrendingUp,
+  CheckCircle2
+} from "lucide-react";
+import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { articles } from "../data/articles";
+import { certifications } from "../data/certifications";
 
-const GITHUB_USERNAME = "FouratMejri99";
-const REPO_NAME = "documentation";
-
-interface GitHubFile {
-  name: string;
-  type: string;
-  download_url?: string;
-  path: string;
-}
-
-interface FileContent {
-  name: string;
-  path: string;
-  content: string;
-  type: string;
-}
+type TabType = "articles" | "certifications";
 
 export default function Documentation() {
-  const [content, setContent] = useState<string>("");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<TabType>("articles");
 
-  useEffect(() => {
-    const fetchDocumentation = async () => {
-      try {
-        setLoading(true);
-        setError(null);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-        // First, fetch the repository contents
-        const contentsResponse = await fetch(
-          `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents`
-        );
-
-        if (!contentsResponse.ok) {
-          throw new Error(`Repository not found or not accessible`);
-        }
-
-        const contents = await contentsResponse.json();
-
-        // Filter for markdown files
-        const markdownFiles = (contents as GitHubFile[]).filter(
-          (file: GitHubFile) =>
-            file.type === "file" &&
-            (file.name.endsWith(".md") || file.name.endsWith(".MD")) &&
-            file.download_url
-        );
-
-        if (markdownFiles.length === 0) {
-          // If no markdown files, try to get README.md directly
-          try {
-            const readmeResponse = await fetch(
-              `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/readme`
-            );
-            if (readmeResponse.ok) {
-              const readmeData = await readmeResponse.json();
-              // GitHub API returns base64 encoded content
-              const decodedContent = atob(
-                readmeData.content.replace(/\n/g, "")
-              );
-              setContent(decodedContent);
-              setLoading(false);
-              return;
-            }
-          } catch {
-            throw new Error("No markdown files found in repository");
-          }
-        }
-
-        // Fetch content from all markdown files
-        const fileContents: FileContent[] = [];
-        for (const file of markdownFiles) {
-          if (!file.download_url) continue;
-          try {
-            const fileResponse = await fetch(file.download_url);
-            if (fileResponse.ok) {
-              const fileContent = await fileResponse.text();
-              fileContents.push({
-                name: file.name,
-                path: file.path,
-                content: fileContent,
-                type: file.type,
-              });
-            }
-          } catch (err) {
-            console.error(`Error fetching ${file.name}:`, err);
-          }
-        }
-
-        // Sort files: README.md first, then alphabetically
-        fileContents.sort((a, b) => {
-          if (a.name.toLowerCase() === "readme.md") return -1;
-          if (b.name.toLowerCase() === "readme.md") return 1;
-          return a.name.localeCompare(b.name);
-        });
-
-        if (fileContents.length > 0) {
-          // Combine all markdown files into one content string
-          const combinedContent = fileContents
-            .map((file) => {
-              // Remove .md extension and filter out "readme" (case-insensitive)
-              let title = file.name.replace(/\.md$/i, "");
-              title = title.replace(/^readme$/i, "").trim();
-              
-              // Only add heading if title is not empty after removing readme
-              if (title) {
-                return `# ${title}\n\n${file.content}`;
-              }
-              return file.content;
-            })
-            .join("\n\n---\n\n");
-
-          setContent(combinedContent);
-        } else {
-          throw new Error("No markdown files found in repository");
-        }
-      } catch (err) {
-        const errorMessage =
-          err instanceof Error ? err.message : "Failed to load documentation";
-        setError(errorMessage);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDocumentation();
-  }, []);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <main className="font-sans bg-gray-900 min-h-screen flex flex-col">
       <Navbar />
       <div className="flex-1 pt-24 pb-16 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-12 text-center"
           >
-            <div className="flex items-center justify-between mb-4 flex-wrap gap-4">
-              <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  Documentation
-                </h1>
-                <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mb-4"></div>
-              </div>
-              <a
-                href={`https://github.com/${GITHUB_USERNAME}/${REPO_NAME}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Articles & Certifications
+              </span>
+            </h1>
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+              Explore my technical articles, tutorials, and professional certifications
+            </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
+          </motion.div>
+
+          {/* Tabs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center mb-12"
+          >
+            <div className="inline-flex bg-gray-800/50 rounded-lg p-1.5 border border-gray-700/50 backdrop-blur-sm">
+              <button
+                onClick={() => setActiveTab("articles")}
+                className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 flex items-center gap-2 ${
+                  activeTab === "articles"
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                    : "text-gray-400 hover:text-white"
+                }`}
               >
-                <Github className="w-5 h-5" />
-                <span className="text-sm">View on GitHub</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+                <BookOpen className="w-5 h-5" />
+                Articles ({articles.length})
+              </button>
+              <button
+                onClick={() => setActiveTab("certifications")}
+                className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 flex items-center gap-2 ${
+                  activeTab === "certifications"
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                    : "text-gray-400 hover:text-white"
+                }`}
+              >
+                <Award className="w-5 h-5" />
+                Certifications ({certifications.length})
+              </button>
             </div>
           </motion.div>
 
-          {loading && (
+          {/* Content */}
+          <motion.div
+            key={activeTab}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {activeTab === "articles" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {articles.map((article, index) => (
+                  <motion.a
+                    key={article.id}
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={itemVariants}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className="group bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-2xl backdrop-blur-sm"
+                  >
+                    {article.featured && (
+                      <div className="flex items-center gap-2 mb-3">
+                        <TrendingUp className="w-4 h-4 text-yellow-400" />
+                        <span className="text-xs font-semibold text-yellow-400 uppercase tracking-wide">
+                          Featured
+                        </span>
+                      </div>
+                    )}
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm mb-4 line-clamp-3 leading-relaxed">
+                      {article.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {article.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-md border border-blue-500/30"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-700/50">
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{article.readTime}</span>
+                        </div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 group-hover:text-blue-400 transition-colors" />
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            )}
+
+            {activeTab === "certifications" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={cert.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className="group bg-gradient-to-br from-gray-800/90 to-gray-900/90 rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 shadow-lg hover:shadow-2xl backdrop-blur-sm"
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Award className="w-5 h-5 text-purple-400" />
+                          <span className="text-xs font-semibold text-purple-400 uppercase tracking-wide">
+                            {cert.category}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                          {cert.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm mb-3">
+                          {cert.issuer}
+                        </p>
+                      </div>
+                      {cert.expiryDate && (
+                        <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
+                      )}
+                    </div>
+                    <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                      {cert.description}
+                    </p>
+                    <div className="space-y-2 mb-4 text-sm">
+                      <div className="flex items-center gap-2 text-gray-400">
+                        <Calendar className="w-4 h-4" />
+                        <span>
+                          Issued: {new Date(cert.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                        </span>
+                      </div>
+                      {cert.expiryDate && (
+                        <div className="flex items-center gap-2 text-gray-400">
+                          <Calendar className="w-4 h-4" />
+                          <span>
+                            Expires: {new Date(cert.expiryDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                          </span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-2 text-gray-400">
+                        <Tag className="w-4 h-4" />
+                        <span className="font-mono text-xs">ID: {cert.credentialId}</span>
+                      </div>
+                    </div>
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium text-sm transition-colors group/link"
+                    >
+                      Verify Certificate
+                      <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    </a>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </motion.div>
+
+          {/* Empty State */}
+          {activeTab === "articles" && articles.length === 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex items-center justify-center py-20"
+              className="text-center py-20"
             >
-              <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
-              <span className="ml-3 text-gray-300">
-                Loading documentation...
-              </span>
+              <BookOpen className="w-16 h-16 text-gray-700 mx-auto mb-4" />
+              <p className="text-gray-400 text-lg">No articles available yet.</p>
             </motion.div>
           )}
 
-          {error && (
+          {activeTab === "certifications" && certifications.length === 0 && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-red-900/20 border border-red-700 rounded-lg p-6 text-red-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-20"
             >
-              <h3 className="font-bold mb-2">Error loading documentation</h3>
-              <p>{error}</p>
-              <p className="text-sm mt-4 text-gray-400">
-                Make sure the repository{" "}
-                <a
-                  href={`https://github.com/${GITHUB_USERNAME}/${REPO_NAME}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline"
-                >
-                  {GITHUB_USERNAME}/{REPO_NAME}
-                </a>{" "}
-                exists and is public.
-              </p>
-            </motion.div>
-          )}
-
-          {!loading && !error && content && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-br from-gray-800/95 to-gray-900/95 rounded-xl p-8 md:p-12 border border-gray-700/50 shadow-2xl backdrop-blur-sm"
-            >
-              <div className="prose prose-invert max-w-none 
-                prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
-                prose-h1:text-4xl prose-h1:font-extrabold prose-h1:mb-6 prose-h1:mt-10 prose-h1:first:mt-0 prose-h1:bg-gradient-to-r prose-h1:from-blue-400 prose-h1:to-purple-400 prose-h1:bg-clip-text prose-h1:text-transparent prose-h1:pb-2 prose-h1:border-b prose-h1:border-gray-700
-                prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h2:text-blue-300
-                prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-6 prose-h3:text-purple-300
-                prose-h4:text-xl prose-h4:font-semibold prose-h4:mb-2 prose-h4:mt-4 prose-h4:text-gray-200
-                prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-5 prose-p:text-base prose-p:font-normal
-                prose-a:text-blue-400 prose-a:no-underline prose-a:font-medium hover:prose-a:text-blue-300 hover:prose-a:underline prose-a:transition-colors
-                prose-strong:text-white prose-strong:font-bold
-                prose-code:text-blue-400 prose-code:bg-gray-900/80 prose-code:px-2 prose-code:py-1 prose-code:rounded-md prose-code:text-sm prose-code:font-mono prose-code:border prose-code:border-gray-700/50
-                prose-pre:bg-gray-900/80 prose-pre:border prose-pre:border-gray-700/50 prose-pre:rounded-xl prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:shadow-inner prose-pre:backdrop-blur-sm
-                prose-pre-code:bg-transparent prose-pre-code:border-0 prose-pre-code:p-0
-                prose-ul:text-gray-300 prose-ul:mb-5 prose-ul:space-y-2 prose-ul:list-disc prose-ul:pl-6
-                prose-ol:text-gray-300 prose-ol:mb-5 prose-ol:space-y-2 prose-ol:list-decimal prose-ol:pl-6
-                prose-li:text-gray-300 prose-li:leading-relaxed prose-li:marker:text-blue-400
-                prose-blockquote:border-blue-500 prose-blockquote:bg-blue-900/20 prose-blockquote:text-gray-200 prose-blockquote:pl-6 prose-blockquote:pr-4 prose-blockquote:py-2 prose-blockquote:border-l-4 prose-blockquote:rounded-r-lg prose-blockquote:italic prose-blockquote:my-6
-                prose-img:rounded-xl prose-img:border prose-img:border-gray-700/50 prose-img:shadow-lg prose-img:my-6 prose-img:mx-auto
-                prose-hr:border-gray-700 prose-hr:my-8 prose-hr:opacity-50
-                prose-table:w-full prose-table:my-6 prose-table:border-collapse
-                prose-th:bg-gray-800 prose-th:text-white prose-th:font-semibold prose-th:p-3 prose-th:border prose-th:border-gray-700
-                prose-td:bg-gray-800/50 prose-td:text-gray-300 prose-td:p-3 prose-td:border prose-td:border-gray-700">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {content}
-                </ReactMarkdown>
-              </div>
+              <Award className="w-16 h-16 text-gray-700 mx-auto mb-4" />
+              <p className="text-gray-400 text-lg">No certifications available yet.</p>
             </motion.div>
           )}
         </div>
