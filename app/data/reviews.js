@@ -25,7 +25,7 @@ export const upworkReviews = [
 
   // Fake testimonials for now:
   {
-    clientName: "Oliver captely Co.founder",
+    clientName: "Oliver captely co-founder",
     country: "France",
     project: "Chrome Extension Development",
     rating: 5,
@@ -37,7 +37,7 @@ export const upworkReviews = [
   },
   {
     clientName: "Henrique",
-    country: "Brazil",
+    country: "Canada",
     project: "React/Node.js developer for Visual Code Extension",
     rating: 5,
     review:
@@ -97,7 +97,7 @@ export const upworkReviews = [
   },
   {
     clientName: "Pierre",
-    country: "France",
+    country: "United States",
     project: "web developer for Landing Page",
     rating: 5,
     review:
