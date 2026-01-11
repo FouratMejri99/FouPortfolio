@@ -36,6 +36,18 @@ export const upworkReviews = [
     platform: "linkedin",
   },
   {
+    clientName: "Jordan Ceo shoptonoutil",
+    country: "France",
+    project: "Full-Stack Developer for Sass Platform",
+    rating: 5,
+    review:
+      "Fourat has been an exceptional developer for our SaaS platform. His expertise in both front-end and back-end technologies has significantly contributed to the success of our project. He is reliable, communicative, and delivers high-quality work on time. I highly recommend Fourat for any full-stack development needs.",
+    date: "Jan 11, 2026",
+    upworkUrl:
+      "https://www.upwork.com/freelancers/~0175443912a5f8cd13?mp_source=share",
+    platform: "upwork",
+  },
+  {
     clientName: "Henrique",
     country: "Canada",
     project: "React/Node.js developer for Visual Code Extension",
