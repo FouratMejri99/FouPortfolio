@@ -1,5 +1,19 @@
 export const projects = [
   {
+    title: "Solupedia - work tracker platform",
+    desc: "A work tracker platform for freelancers and agencies to manage projects, track time, and collaborate with clients. It includes features like task management, time tracking, invoicing, and client communication tools.",
+    tech: [
+      "javascript",
+      "nodeJs",
+      "DOM extraction",
+      "TypeScript",
+      "Tailwind CSS",
+      "json",
+    ],
+    link: "https://solupedia.com/",
+    color: "from-blue-500 to-orange-500",
+  },
+  {
     title: "Captely Browser extension",
     desc: "The goal was to make these modules more stable, more accurate, and as polished as commercial-grade tools used in the data-automation market We want a system that feels production-ready, runs smoothly at scale, and never returns incorrect or incomplete data.",
     tech: [
