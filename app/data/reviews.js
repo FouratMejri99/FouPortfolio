@@ -25,6 +25,17 @@ export const upworkReviews = [
 
   // Fake testimonials for now:
   {
+    clientName: "Waleed Solupedia founder",
+    country: "Egypte",
+    project: "Web developer for Solupedia work tracker platform",
+    rating: 5,
+    review:
+      "Fourat went above and beyond for this project. Not only did he deliver outstanding results ahead of schedule, but he also proactively offered valuable suggestions that enhanced the final product. His commitment to excellence and client satisfaction is truly commendable. We couldn't be happier with their work.",
+    date: "Jan 20, 2025 - Feb 7, 2026",
+    upworkUrl: "https://www.linkedin.com/in/fourat-mejri/",
+    platform: "upwork",
+  },
+  {
     clientName: "Oliver captely co-founder",
     country: "France",
     project: "Chrome Extension Development",
