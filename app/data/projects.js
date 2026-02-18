@@ -1,5 +1,19 @@
 export const projects = [
   {
+    title: "Landing Page for Interior Design Company",
+    desc: "A visually stunning landing page for an interior design company, showcasing their portfolio and services with a modern and responsive design.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.io",
+      "Tailwind CSS",
+    ],
+    link: "https://landingpage-gamma-five-87.vercel.app/",
+    color: "from-green-500 to-teal-500",
+  },
+  {
     title: "Solupedia - work tracker platform",
     desc: "A work tracker platform for freelancers and agencies to manage projects, track time, and collaborate with clients. It includes features like task management, time tracking, invoicing, and client communication tools.",
     tech: [
