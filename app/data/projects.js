@@ -54,7 +54,7 @@ export const projects = [
       "Tailwind CSS",
       "json",
     ],
-    link: "https://shoptonoutil.vercel.app/",
+    link: "https://shoptonoutil2-swwt.vercel.app/",
     color: "from-blue-500 to-white",
   },
   {
