@@ -1,5 +1,19 @@
 export const projects = [
   {
+    title: "Ecommerce Platform",
+    desc: "A full-featured ecommerce platform with user authentication, product management, shopping cart, and payment integration, built using the MERN stack.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "Supabase (PostgreSQL)",
+      "Tailwind CSS",
+    ],
+    link: "https://ecommerce-phi-ashen-34.vercel.app/",
+    color: " from-blue-500 to-teal-500",
+  },
+
+  {
     title: "Landing Page for Interior Design Company",
     desc: "A visually stunning landing page for an interior design company, showcasing their portfolio and services with a modern and responsive design.",
     tech: [

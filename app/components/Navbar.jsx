@@ -19,9 +19,10 @@ export default function Navbar() {
 
   const links = ["Home", "Projects", "Testimonials", "Contact"];
   const externalLinks = [
-    { name: "Documentation", href: "/documentation" }
+    { name: "Outil AI", href: "/outil" },
+    { name: "Documentation", href: "/documentation" },
   ];
-  
+
   // Filter links based on current page
   const displayLinks = isDocumentationPage ? ["Home"] : links;
 
@@ -40,13 +41,13 @@ export default function Navbar() {
         ></Link>
         <div className="hidden md:flex items-center space-x-8">
           {displayLinks.map((link, index) => {
-            const href = link === "Home" && isDocumentationPage 
-              ? "/" 
-              : `#${link.toLowerCase()}`;
-            const Component = link === "Home" && isDocumentationPage 
-              ? Link 
-              : "a";
-            
+            const href =
+              link === "Home" && isDocumentationPage
+                ? "/"
+                : `#${link.toLowerCase()}`;
+            const Component =
+              link === "Home" && isDocumentationPage ? Link : "a";
+
             return (
               <Component
                 key={link}
@@ -92,13 +93,13 @@ export default function Navbar() {
           >
             <div className="px-6 py-4 space-y-3">
               {displayLinks.map((link) => {
-                const href = link === "Home" && isDocumentationPage 
-                  ? "/" 
-                  : `#${link.toLowerCase()}`;
-                const Component = link === "Home" && isDocumentationPage 
-                  ? Link 
-                  : "a";
-                
+                const href =
+                  link === "Home" && isDocumentationPage
+                    ? "/"
+                    : `#${link.toLowerCase()}`;
+                const Component =
+                  link === "Home" && isDocumentationPage ? Link : "a";
+
                 return (
                   <Component
                     key={link}
